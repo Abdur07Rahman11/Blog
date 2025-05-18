@@ -45,7 +45,66 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-600">আমার ওয়েবসাইট</a>
+<main class="container mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">সাম্প্রতিক পোস্টসমূহ</h1>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-3">ফেসবুক থেকে একটি ভিডিও</h2>
+                    <div class="aspect-w-16 aspect-h-9"> <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fabdur07rahman11%2Fvideos%2F728369389626418%2F&show_text=true&width=476&t=0" width="476" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    </div>
+                    <p class="text-gray-700 text-sm mt-3 mb-1">শেয়ার করা হয়েছে: [আজকের তারিখ]</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        ফেসবুক থেকে সরাসরি এই ভিডিওটি দেখুন।
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/BFDBFE/1E3A8A?text=পোস্ট+১+এর+ছবি" alt="পোস্টের ছবি" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-2">পোস্টের শিরোনাম ১</h2>
+                    <p class="text-gray-700 text-sm mb-1">প্রকাশের তারিখ: ১৮ মে, ২০২৫</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        এটি প্রথম পোস্টের একটি সংক্ষিপ্ত বিবরণ...
+                    </p>
+                    <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">আরও পড়ুন</a>
+                </div>
+            </div>
+
+            </div>
+
+        </main>
+    
+    ```
+
+**ব্যাখ্যা:**
+
+1.  আমি "উদাহরণ পোস্টের গ্রিড" সেকশনের ঠিক শুরুতেই একটি নতুন `div` তৈরি করেছি যা একটি পোস্ট কার্ডের মতো (`class="bg-white shadow-lg rounded-lg overflow-hidden"`)।
+2.  এর ভেতরে একটি শিরোনাম (`h2`) দিয়েছি।
+3.  তারপর আপনার দেওয়া `<iframe>` কোডটি হুবহু পেস্ট করেছি।
+    * **নোট:** `<iframe>`-এর `width` এবং `height` অ্যাট্রিবিউটগুলো ফেসবুক নিজে থেকেই দিয়ে দিয়েছে (`width="476" height="591"`)। এটি একটি নির্দিষ্ট আকার দেবে। যদি আপনি চান এটি আপনার কার্ড বা কন্টেইনারের সাথে মানানসই হোক (রেসপন্সিভ), তাহলে আপনাকে কাস্টম CSS অথবা Tailwind CSS এর `aspect-ratio` ইউটিলিটি ব্যবহার করতে হতে পারে (যেমন আমি কমেন্ট করে `<div class="aspect-w-16 aspect-h-9">` যোগ করার চেষ্টা করেছি, তবে ফেসবুকের এমবেডের নির্দিষ্ট উচ্চতা ও প্রশস্ততা থাকায় এটি পুরোপুরি কাজ নাও করতে পারে। সেক্ষেত্রে `iframe` এর `width="100%"` এবং `height` প্রয়োজন অনুযায়ী অ্যাডজাস্ট করতে পারেন, অথবা ফেসবুকের দেওয়া সাইজই রাখতে পারেন)।
+4.  আপনি ভিডিওটির নিচে কিছু বিবরণমূলক লেখা যোগ করতে পারেন।
+
+**কোথায় এডিট করবেন:**
+
+আপনার `index.html` ফাইলটি একটি টেক্সট এডিটরে (যেমন Notepad++, VS Code, Sublime Text, ইত্যাদি) খুলুন। তারপর উপরে দেখানো `<main>` সেকশনের ভেতরে `grid` `div`-এর মধ্যে উপযুক্ত জায়গায় `<iframe>` কোডটি বসিয়ে দিন।
+
+**বিকল্প স্থান:**
+
+আপনি যদি চান ভিডিওটি পোস্টের গ্রিডে না দেখিয়ে আলাদা একটি সেকশনে দেখাতে, তাহলে `<main>` ট্যাগের ভেতরে একটি নতুন `<section>` তৈরি করে সেখানেও `<iframe>` কোডটি বসাতে পারেন। যেমন:
+
+```html
+<main class="container mx-auto px-6 py-8">
+    <section id="videoSection" class="py-12 mt-12 bg-white shadow rounded-lg p-8">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">বিশেষ ভিডিও</h2>
+        <div class="flex justify-center"> <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fabdur07rahman11%2Fvideos%2F728369389626418%2F&show_text=true&width=476&t=0" width="476" height="591" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+        </div>
+    </section>
+
+</main>
             <div class="relative">
                 <button id="menuButton" class="text-gray-600 hover:text-blue-500 focus:outline-none p-2 rounded-full menu-icon-button">
                     <i class="fas fa-ellipsis-v fa-lg"></i> </button>
