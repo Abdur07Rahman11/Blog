@@ -3,68 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আমার প্রথম ওয়েবসাইট</title>
+    <title>আমার ওয়েবসাইট</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* কাস্টম স্টাইল (যদি প্রয়োজন হয়) */
         body {
-            font-family: 'Arial', sans-serif; /* একটি সাধারণ বাংলা সমর্থিত ফন্ট ব্যবহার করা হচ্ছে */
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
+            font-family: 'Inter', sans-serif; /* একটি আধুনিক ফন্ট */
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1em 0;
-            width: 100%;
+        .dropdown-menu {
+            display: none; /* প্রাথমিকভাবে ড্রপডাউন মেনু লুকানো থাকবে */
+            position: absolute;
+            right: 0;
+            top: 100%; /* আইকনের ঠিক নিচে দেখানোর জন্য */
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 10;
+            border-radius: 0.375rem; /* 6px */
+            min-width: 120px; /* ড্রপডাউনের ন্যূনতম প্রস্থ */
         }
-        header h1 {
-            margin: 0;
-            padding: 0.5em;
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem; /* 12px 16px */
+            color: #374151; /* gray-700 */
+            text-decoration: none;
         }
-        main {
-            padding: 20px;
-            background-color: #fff;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        .dropdown-menu a:hover {
+            background-color: #f3f4f6; /* gray-100 */
         }
-        p {
-            line-height: 1.6;
+        /* মেনু আইকনের জন্য অতিরিক্ত স্টাইল */
+        .menu-icon-button {
+            transition: background-color 0.3s ease;
         }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        .menu-icon-button:hover {
+            background-color: #e5e7eb; /* gray-200 */
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>আমার ওয়েবসাইটে স্বাগতম!</h1>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">আমার ওয়েবসাইট</a>
+
+            <div class="relative">
+                <button id="menuButton" class="text-gray-600 hover:text-blue-500 focus:outline-none p-2 rounded-full menu-icon-button">
+                    <i class="fas fa-ellipsis-v fa-lg"></i> </button>
+                <div id="dropdownMenu" class="dropdown-menu mt-1">
+                    <a href="#blog">ব্লগ</a>
+                    <a href="#about">আমাদের সম্পর্কে</a>
+                    </div>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <h2>এটি আমার প্রথম ওয়েবসাইট</h2>
-        <p>আমি GitHub Pages ব্যবহার করে এই ওয়েবসাইটটি তৈরি করছি। এটি একটি সাধারণ স্ট্যাটিক ওয়েবসাইট।</p>
-        <p>আপনি এখানে আপনার নিজের সম্পর্কে তথ্য, আপনার প্রকল্প, বা অন্য যেকোনো কিছু যোগ করতে পারেন।</p>
-        <p>শুভকামনা!</p>
+    <main class="container mx-auto px-6 py-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-10">সাম্প্রতিক পোস্টসমূহ</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/BFDBFE/1E3A8A?text=পোস্ট+১+এর+ছবি" alt="পোস্টের ছবি" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-2">পোস্টের শিরোনাম ১</h2>
+                    <p class="text-gray-700 text-sm mb-1">প্রকাশের তারিখ: ১৮ মে, ২০২৫</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        এটি প্রথম পোস্টের একটি সংক্ষিপ্ত বিবরণ। এখানে আপনি আপনার পোস্টের মূল বিষয়বস্তু সম্পর্কে কিছু লিখতে পারেন...
+                    </p>
+                    <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">আরও পড়ুন</a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/B9E4C9/065F46?text=পোস্ট+২+এর+ছবি" alt="পোস্টের ছবি" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-2">পোস্টের শিরোনাম ২</h2>
+                    <p class="text-gray-700 text-sm mb-1">প্রকাশের তারিখ: ১৭ মে, ২০২৫</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        এটি দ্বিতীয় পোস্টের একটি সংক্ষিপ্ত বিবরণ। বিভিন্ন বিষয় নিয়ে এখানে আলোচনা করা যেতে পারে, যেমন প্রযুক্তি, ভ্রমণ, বা ব্যক্তিগত অভিজ্ঞতা...
+                    </p>
+                    <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">আরও পড়ুন</a>
+                </div>
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="https://placehold.co/600x400/FBCFE8/9D174D?text=পোস্ট+৩+এর+ছবি" alt="পোস্টের ছবি" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-2">পোস্টের শিরোনাম ৩</h2>
+                    <p class="text-gray-700 text-sm mb-1">প্রকাশের তারিখ: ১৬ মে, ২০২৫</p>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        এটি তৃতীয় পোস্টের একটি সংক্ষিপ্ত বিবরণ। আপনার ওয়েবসাইটের বিষয়বস্তুর সাথে সঙ্গতি রেখে এখানে কনটেন্ট যোগ করুন...
+                    </p>
+                    <a href="#" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">আরও পড়ুন</a>
+                </div>
+            </div>
+            </div>
+
+        <section id="blog" class="py-12 mt-12 bg-white shadow rounded-lg p-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">ব্লগ</h2>
+            <p class="text-gray-700 text-center">এখানে আপনার ব্লগ পোস্টগুলো প্রদর্শিত হবে। প্রতিটি পোস্টের জন্য আলাদা পেজ তৈরি করতে পারেন অথবা এখানেই সংক্ষিপ্ত আকারে দেখাতে পারেন।</p>
+            </section>
+
+        <section id="about" class="py-12 mt-12 bg-white shadow rounded-lg p-8">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">আমাদের সম্পর্কে</h2>
+            <p class="text-gray-700 text-center leading-relaxed">
+                এখানে আপনার বা আপনার প্রতিষ্ঠান সম্পর্কে বিস্তারিত তথ্য দিন। আপনার লক্ষ্য, উদ্দেশ্য এবং কার্যক্রম সম্পর্কে জানাতে পারেন।
+                যোগাযোগের তথ্যও এখানে যোগ করা যেতে পারে।
+            </p>
+        </section>
+
     </main>
 
-    <footer>
-        <p>&copy; ২০২৫ - আব্দুর রহমান </p>
+    <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+        <p>&copy; 2025 ABDUR RAHMAN. সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
-</body>
-</html>
 
-  
+    <script>
+        // DOM এলিমেন্টগুলো সিলেক্ট করা
+        const menuButton = document.getElementById('menuButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        // মেনু বাটনে ক্লিক ইভেন্ট যোগ করা
+        menuButton.addEventListener('click', function() {
+            // ড্রপডাউন মেনুর প্রদর্শন অবস্থা টগল করা (দেখানো/লুকানো)
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+            } else {
+                dropdownMenu.style.display = 'block';
+            }
+        });
+
+        // ড্রপডাউন মেনুর বাইরে ক্লিক করলে মেনু বন্ধ করার জন্য ইভেন্ট লিসেনার
+        document.addEventListener('click', function(event) {
+            // যদি ক্লিকের টার্গেট মেনু বাটন বা ড্রপডাউন মেনুর অংশ না হয়
+            if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none'; // ড্রপডাউন মেনু লুকানো হবে
+            }
+        });
+    </script>
+
+</body>
+                </html>
+                    
